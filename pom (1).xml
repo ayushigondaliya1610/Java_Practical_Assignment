@@ -1,16 +1,13 @@
-package ejb;
+package com.mycompany.q_1;
 
-import entity.Book;
-import jakarta.ejb.Stateless;
-import jakarta.persistence.*;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
-@Stateless
-public class BookServiceBean {
-
-    @PersistenceContext(unitName = "bookPU")
-    private EntityManager em;
-
-    public Book getBook(int id) {
-        return em.find(Book.class, id);
-    }
+/**
+ * Configures Jakarta RESTful Web Services for the application.
+ * @author Juneau
+ */
+@ApplicationPath("resources")
+public class JakartaRestConfiguration extends Application {
+    
 }
