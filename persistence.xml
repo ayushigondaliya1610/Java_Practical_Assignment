@@ -1,0 +1,39 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package abc.fashion_store.dao;
+
+import abc.fashion_store.model.Product;
+import java.sql.*;
+import java.util.*;
+
+public class ProductDAO {
+
+    public List<Product> getAllProducts() {
+
+        List<Product> list = new ArrayList<>();
+
+        try {
+            Connection con = DBConnection.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM product_master");
+
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProductId(rs.getInt("product_id"));
+                p.setProductName(rs.getString("product_name"));
+                p.setPrice(rs.getDouble("price"));
+                p.setUnit(rs.getString("unit"));
+                p.setDiscount(rs.getDouble("discount"));
+                p.setImage(rs.getString("image"));
+                p.setCategoryId(rs.getInt("category_id"));
+                p.setStock(rs.getInt("stock"));
+                list.add(p);
+            }
+            con.close();
+        } catch (SQLException e) {
+        }
+        return list;
+    }
+}

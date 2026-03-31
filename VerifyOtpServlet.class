@@ -1,0 +1,166 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fashion Store | Login</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    font-family:'Segoe UI', Arial;
+    background: linear-gradient(135deg, #3e2723, #6d4c41);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.login-card{
+    width:850px;
+    height:420px;
+    background:#f5f1ee;
+    border-radius:16px;
+    box-shadow:0 25px 40px rgba(0,0,0,0.4);
+    display:flex;
+    overflow:hidden;
+}
+
+/* LEFT PANEL */
+.left-panel{
+    width:50%;
+    background:linear-gradient(135deg,#4e342e,#3e2723);
+    color:#fff;
+    padding:55px 40px;
+}
+
+.left-panel h1{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.left-panel p{
+    font-size:14px;
+    opacity:0.9;
+    line-height:1.6;
+}
+
+/* RIGHT PANEL */
+.right-panel{
+    width:50%;
+    padding:45px 40px;
+}
+
+.right-panel h2{
+    margin-bottom:25px;
+    color:#4e342e;
+}
+
+label{
+    font-size:13px;
+    font-weight:600;
+    color:#4e342e;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:6px 0 14px;
+    border-radius:6px;
+    border:1px solid #bcaaa4;
+}
+
+input:focus{
+    outline:none;
+    border-color:#6d4c41;
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.options a{
+    color:#6d4c41;
+    text-decoration:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#6d4c41;
+    color:white;
+    border:none;
+    border-radius:25px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#4e342e;
+}
+
+.register-link{
+    text-align:center;
+    margin-top:15px;
+    font-size:13px;
+}
+
+.register-link a{
+    color:#6d4c41;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.error{
+    color:red;
+    text-align:center;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <div class="left-panel">
+        <h1>Welcome Back</h1>
+        <p>
+            Sign in to explore premium fashion,
+            manage orders, and enjoy exclusive offers.
+        </p>
+    </div>
+
+    <div class="right-panel">
+        <h2>Login</h2>
+
+        <form action="login" method="post">
+            <label>Email</label>
+            <input type="text" name="email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="forgotPassword.jsp">Forgot password?</a>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="register-link">
+            New user? <a href="register.jsp">Create Account</a>
+        </div>
+
+        <% if(request.getParameter("error")!=null){ %>
+            <div class="error">Invalid Email or Password</div>
+        <% } %>
+    </div>
+
+</div>
+
+</body>
+</html>
