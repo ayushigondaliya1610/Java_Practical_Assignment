@@ -1,0 +1,27 @@
+<%-- 
+    Document   : visit.jsp
+    Created on : 2 Mar 2026, 10:38:01 am
+    Author     : tejan
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Visit Counter</title>
+    </head>
+    <body>
+        <h1>Welcome to my web page</h1>
+        
+        <% 
+          if(request.getAttribute("count") != null){  
+        %>
+        <h3>You have visited this page <%= request.getAttribute("count") %> times. </h3>
+        
+        <% } %>
+        
+        <a href="VisitServlet">Refresh page</a>
+                
+    </body>
+</html>

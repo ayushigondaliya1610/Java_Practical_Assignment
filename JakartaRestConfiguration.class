@@ -1,6 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd"
-       bean-discovery-mode="all">
-</beans>
+package com.mycompany.q1.resources;
+
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Response;
+
+/**
+ *
+ * @author 
+ */
+@Path("jakartaee10")
+public class JakartaEE10Resource {
+    
+    @GET
+    public Response ping(){
+        return Response
+                .ok("ping Jakarta EE")
+                .build();
+    }
+}

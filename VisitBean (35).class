@@ -1,0 +1,37 @@
+<%-- 
+    Document   : index
+    Created on : 1 Mar 2026, 3:20:25 pm
+    Author     : tejan
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Currency Converter</title>
+    </head>
+    <body>
+        <h2>Currency Converter</h2>
+        
+        <form action="ConvertServlet" method="post">
+            From Currency:
+            <input type="text" name="from" required="required" placeholder="USD">
+            <br/><br/>
+            
+            To Currency:
+            <input type="text" name="to" required="required" placeholder="INR">
+            <br/><br/>
+            
+            Amount:
+            <input type="text" name="amount" step="0.01" required="required">
+            <br/><br/>
+            
+            <input type="submit" value="Convert">
+        </form>
+        
+        <% if(request.getAttribute("result") != null){ %>
+        <h3>Converted Amount: <%= request.getAttribute("result") %></h3>
+        <% } %>
+    </body>
+</html>
