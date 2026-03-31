@@ -1,0 +1,26 @@
+CREATE TABLE Customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    home_address TEXT,
+    home_phone VARCHAR(20),
+    business_address TEXT,
+    business_phone VARCHAR(20),
+    fax VARCHAR(20),
+    cell_phone VARCHAR(20),
+    pager VARCHAR(20),
+    marital_status VARCHAR(20), -- 'Married' or 'Single'
+    num_children INT,
+    annual_income DOUBLE,
+    photo varchar (70)
+);
+
+
+
+
+CREATE PROCEDURE GetAvgIncomeMarried(OUT avg_income DOUBLE)
+BEGIN
+    SELECT AVG(annual_income) INTO avg_income 
+    FROM Customers 
+    WHERE marital_status = 'Married';
+
+
