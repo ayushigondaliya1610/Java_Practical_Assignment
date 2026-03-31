@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1.resources;
+package com.mycompany.q_2.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
